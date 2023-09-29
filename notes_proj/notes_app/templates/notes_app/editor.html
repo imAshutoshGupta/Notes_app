@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar dark">
+        <div class="navbar-brand">
+            <a href="{% url 'editor' %}" class="navbar-item">Notes</a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a href="{% url 'editor' %}" class="navbar-item"> Add New Note</a>  
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="columns">
+            <div class="columns is-2">
+                Left
+            </div>
+            <div class="columns is-10">
+                Right
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

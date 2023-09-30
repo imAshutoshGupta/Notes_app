@@ -38,7 +38,7 @@ def update(request,rid):
     if request.method == 'GET':
         context = {}
         context['notes'] = o
-        return render(request, 'notes_app/updatenotes.html',context)
+        return render(request,'notes_app/updatenotes.html',context)
     else:
         ut = request.POST['ititle']
         uc = request.POST['icontent']

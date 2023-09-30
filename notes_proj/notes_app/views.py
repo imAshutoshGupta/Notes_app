@@ -1,32 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Notes
 # Create your views here.
 
+def create(request):
+    
+    if request.method == 'POST':
+        t = request.POST['ititle']
+        c = request.POST['icontent']
+        print(t)
+        print(c)
+
+        o = Notes.objects.create(title = t, content = c)
+        print(o)
+        o.save()
+        #return HttpResponse("data inserted")
+        return redirect('/dash')
+    else:
+        return render(request,'notes_app/addnotes.html')
+    
 def dash(request):
     o = Notes.objects.all()
-    context = {'notes' : 'o'}
+    context = {}
+    context['notes'] = o
 
     return render(request, 'notes_app/dashboard.html', context)
 
-def create(request):
-    if request.method == 'GET':
-        return render(request,'notes_app/addnotes.html')
-    else:
-        t = request.POST['ititle']
-        c = request.POST['icontent']
-
-
-        o = Notes.objects.create(title = t, content = c)
-        o.save()
-
-        return render(request, 'notes_app/addnotes.html')
 def update(request):
     #if request.method == 'POST':
 
 
     return render(request, 'notes_app/updatenotes.html')
-def delete(request):
-    #if request.method == 'POST':
-
-
-    return render(request, 'notes_app/dash.html')
+def delete(request,rid):
+    o = Notes.objects.filter(id=rid)
+    o.delete()
+    return redirect('/dash')

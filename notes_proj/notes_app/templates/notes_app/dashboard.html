@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Dashboard</title>
+</head>
+<body align="center">
+    <h1 align="center"> Notes Dashboard </h1>
+    <hr>
+    <table align="center" border="1">
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Creation date</th>
+            <th>Update note</th>
+            <th>Delete note</th>
+        </tr>
+        {% for x in notes %}
+            <tr>
+                <td>{{x.title}}</td>
+                <td>{{x.content}}</td>
+                <td>{{x.created_at}}</td>
+                <td> <a href="/notes_app/updatenotes/{{x.rid}}"><button> UPDATE </button></a></td>
+                <td> <a href="/notes_app/deletenotes/{{x.rid}}"><button> DELETE </button></a> </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

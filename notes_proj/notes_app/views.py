@@ -2,13 +2,31 @@ from django.shortcuts import render
 from .models import Notes
 # Create your views here.
 
-def editor(request):
-    note_id = int(request.GET.get('note_id',0))
-    texts = Notes.objects.all()
+def dash(request):
+    o = Notes.objects.all()
+    context = {'notes' : 'o'}
 
-    context = {
-        'note_id' : note_id,
-        'texts' : texts
-    }
+    return render(request, 'notes_app/dashboard.html', context)
 
-    return render(request, 'notes_app/editor.html', context)
+def create(request):
+    if request.method == 'GET':
+        return render(request,'notes_app/addnotes.html')
+    else:
+        t = request.POST['ititle']
+        c = request.POST['icontent']
+
+
+        o = Notes.objects.create(title = t, content = c)
+        o.save()
+
+        return render(request, 'notes_app/addnotes.html')
+def update(request):
+    #if request.method == 'POST':
+
+
+    return render(request, 'notes_app/updatenotes.html')
+def delete(request):
+    #if request.method == 'POST':
+
+
+    return render(request, 'notes_app/dash.html')

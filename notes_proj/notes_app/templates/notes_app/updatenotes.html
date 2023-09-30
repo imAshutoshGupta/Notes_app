@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Notes</title>
+</head>
+
+<body align="center">
+    <h1 align="center"> Add Notes </h1>
+    <hr>    
+    <form>
+        {% csrf_token %}
+
+        <table border="0" align="center">
+            <tr>
+                <td> <strong> Title </strong> </td>
+                <td> <input type="text" name="ititle" id=""></td>
+            </tr>
+            <tr>
+                <td> <strong> Content </strong> </td>
+                <td> <textarea type="text" name="icontent" id=""></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Create Note"></td>
+            </tr>
+
+        </table>
+    </form>
+
+
+
+</body>
+
+</html>

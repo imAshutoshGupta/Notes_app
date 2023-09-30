@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Details</title>
+</head>
+<body align="center">
+    <h1 align="center"> Notes Details </h1>
+    <hr>
+    <table align="center" border="1">
+        <tr>
+            <th>Sr.No</th>
+            <th>Title</th>
+            <th>Information</th>
+            <th>Creation date</th>
+            <th>Update note</th>
+            <th>Delete note</th>
+        </tr>
+            <tr>
+                <td>{{notes.id}}</td>
+                <td>{{notes.title}}</td>
+                <td>{{notes.content}}</td>
+                <td>{{notes.created_at}}</td>
+                <td> <a href="/updatenotes/{{notes.id}}"><button> UPDATE </button></a></td>
+                <td> <a href="/deletenotes/{{notes.id}}"><button> DELETE </button></a> </td>
+            </tr>
+    </table>
+    <hr>
+    <a align="center" href="/addnotes"><button>Add Another Note</button></a>
+</body>
+</html>

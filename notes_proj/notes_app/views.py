@@ -25,6 +25,13 @@ def dash(request):
 
     return render(request, 'notes_app/dashboard.html', context)
 
+def viewnotes(request,rid):
+    o = Notes.objects.get(id=rid)
+    if request.method == 'GET':
+        context = {'notes':o}
+
+        return render(request, 'notes_app/notesdetails.html', context)
+
 def update(request,rid):
     o = Notes.objects.filter(id=rid)
 

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Notes</title>
+    <title>Update Notes</title>
 </head>
 
 <body align="center">
-    <h1 align="center"> Add Notes </h1>
+    <h1 align="center"> Update Notes </h1>
     <hr>    
-    <form>
+    <form method="post">
         {% csrf_token %}
 
         <table border="0" align="center">
@@ -23,11 +23,13 @@
                 <td> <textarea type="text" name="icontent" id=""></textarea></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" value="Create Note"></td>
+                <td colspan="2" align="center"><input type="submit" value="Update Note"></td>
             </tr>
 
         </table>
     </form>
+    <hr>
+    <a href="/dash"><button> Go Back </button></a>
 
 
 

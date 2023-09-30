@@ -25,11 +25,20 @@ def dash(request):
 
     return render(request, 'notes_app/dashboard.html', context)
 
-def update(request):
-    #if request.method == 'POST':
+def update(request,rid):
+    o = Notes.objects.filter(id=rid)
 
+    if request.method == 'GET':
+        context = {}
+        context['notes'] = o
+        return render(request, 'notes_app/updatenotes.html',context)
+    else:
+        ut = request.POST['ititle']
+        uc = request.POST['icontent']
 
-    return render(request, 'notes_app/updatenotes.html')
+        o.update(title = ut, content = uc)
+        return redirect('/dash')
+        
 def delete(request,rid):
     o = Notes.objects.filter(id=rid)
     o.delete()
